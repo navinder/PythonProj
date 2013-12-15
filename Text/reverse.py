@@ -5,6 +5,7 @@ will reverse it and print it out.
 """
 
 string = raw_input("Whatchu wanna say to me? ")
+print string
 copy = [c for c in string]
 for i in range(len(copy) / 2):
     copy[i], copy[len(copy) - i - 1] = copy[len(copy) - i - 1], copy[i]

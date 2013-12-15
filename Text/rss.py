@@ -13,17 +13,19 @@ def main():
 
     Eg: http://feeds.feedburner.com/WebDesignLedger
     """
-    feed_url = raw_input('Enter Feedburner RSS URL: ')
+    #eed_url = raw_input('Enter Feedburner RSS URL: ')
+    feed_url = 'http://feeds.feedburner.com/WebDesignLedger'
     content = urllib2.urlopen(feed_url).read() # get the source code of feed
 
     link_pattern = re.compile('<link>(.*)</link>')
     title_pattern = re.compile('<title>(.*)</title>')
-
+    
     links = re.findall(link_pattern, content)[1:] # skip blog url
     titles = re.findall(title_pattern, content)[1:] # skip the page title
 
     for (link, title) in zip(links, titles):
-        print '{0}\n{1}\n'.format(title, link)
+        #print '{0}\n{1}\n'.format(title, link)
+        print title,"\n",link
 
 if __name__ == '__main__':
     main()
